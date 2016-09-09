@@ -2,7 +2,7 @@
   "name": "russet",
   "version": "1.0.0",
   "description": "Russet Server Side Framework",
-  "main": "app/russet/russet.js",
+  "main": "app/russet/exports.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

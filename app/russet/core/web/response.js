@@ -61,6 +61,7 @@ var ResponseHeader = (function () {
     }
     return ResponseHeader;
 }());
+exports.ResponseHeader = ResponseHeader;
 var Response = (function () {
     function Response(content, statusCode, charSet, headers) {
         if (content === void 0) { content = ""; }

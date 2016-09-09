@@ -1,4 +1,4 @@
-
+/*
 class Entity
 {
     protected static gravyConfig = {}
@@ -35,7 +35,7 @@ class Store
         })
     }
 }*/
-
+/*
 const Backend = (backendType, config) =>
 {
     const setupEvents = (constructor) => 
@@ -85,4 +85,4 @@ export = {
     Store,
     Backend,
     Schema
-}
+}*/

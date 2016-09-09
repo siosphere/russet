@@ -57,7 +57,7 @@ export enum HTTPStatusCode
     NETWORK_AUTHENTICATION_REQUIRED = 511
 }
 
-class ResponseHeader
+export class ResponseHeader
 {
     name : string
     value : any

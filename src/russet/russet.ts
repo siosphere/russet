@@ -5,7 +5,7 @@ import {ApiResponse as ApiResponseClass} from "./core/web/api-response"
 import {Response as ResponseClass} from "./core/web/response"
 import {WorkchainResponse as WorkchainResponseClass, ResponseWorkchain as ResponseWorkchainClass} from "./core/workchain"
 
-class RussetExportClass
+export class RussetExportClass
 {
     App = CoreApp
 
@@ -21,7 +21,3 @@ class RussetExportClass
     
     ResponseWorkchain = ResponseWorkchainClass
 }
-
-const RussetExports = new RussetExportClass()
-
-export = RussetExports

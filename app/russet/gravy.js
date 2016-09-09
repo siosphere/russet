@@ -1,12 +1,9 @@
-"use strict";
-var Entity = (function () {
-    function Entity() {
-    }
-    Entity.prototype.gravy = function () {
-        return Entity.gravyConfig;
-    };
-    Entity.gravyConfig = {};
-    Entity.events = {
+/*
+class Entity
+{
+    protected static gravyConfig = {}
+
+    public static events = {
         lifecycle: {
             preload: '{modelType}.lifecycle.preload',
             postload: '{modelType}.lifecycle.postload',
@@ -16,11 +13,15 @@ var Entity = (function () {
             errsave: '{modelType}.lifecycle.errsave',
             predelete: '{modelType}.lifecycle.predelete',
             postdelete: '{modelType}.lifecycle.postdelete',
-            errdelete: '{modelType}.lifecycle.errdelete'
+            errdelete:'{modelType}.lifecycle.errdelete'
         }
-    };
-    return Entity;
-}());
+    }
+
+    gravy()
+    {
+        return Entity.gravyConfig
+    }
+}
 /*
 class Store
 {
@@ -34,41 +35,54 @@ class Store
         })
     }
 }*/
-var Backend = function (backendType, config) {
-    var setupEvents = function (constructor) {
-        for (var event in constructor.events.lifecycle) {
-            constructor.events.lifecycle[event] = constructor.events.lifecycle[event].replace('{modelType}', constructor.name);
+/*
+const Backend = (backendType, config) =>
+{
+    const setupEvents = (constructor) =>
+    {
+        for(var event in constructor.events.lifecycle)
+        {
+            constructor.events.lifecycle[event] = constructor.events.lifecycle[event].replace('{modelType}', constructor.name)
         }
-    };
-    return function (constructor) {
-        var newConstructor = function () {
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i - 0] = arguments[_i];
-            }
+    }
+
+    return function(constructor : any)
+    {
+
+        var newConstructor : any = function(...args)
+        {
             this.gravyConfig = {
                 backendType: backendType,
                 config: config
-            };
-            setupEvents(constructor);
-            return constructor.apply(this, args);
+            }
+
+            setupEvents(constructor)
+
+            return constructor.apply(this, args)
         };
-        newConstructor.prototype = constructor.prototype;
-        return newConstructor;
-    };
-};
-var Schema = (function () {
-    function Schema() {
+
+        newConstructor.prototype = constructor.prototype
+
+        return newConstructor as void
     }
-    Schema.int = function () {
-    };
-    return Schema;
-}());
-var Store = function (data) {
-};
-module.exports = {
-    Entity: Entity,
-    Store: Store,
-    Backend: Backend,
-    Schema: Schema
-};
+}
+
+class Schema
+{
+    public static int()
+    {
+
+    }
+}
+
+const Store = function(data)
+{
+
+}
+
+export = {
+    Entity,
+    Store,
+    Backend,
+    Schema
+}*/ 

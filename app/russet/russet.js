@@ -17,5 +17,4 @@ var RussetExportClass = (function () {
     }
     return RussetExportClass;
 }());
-var RussetExports = new RussetExportClass();
-module.exports = RussetExports;
+exports.RussetExportClass = RussetExportClass;
