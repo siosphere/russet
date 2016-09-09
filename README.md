@@ -1,7 +1,7 @@
 #russet
 
 ## Example Usage
-```
+``` javascript
 'use strict';
 var russet = require('russet')
 
@@ -40,7 +40,7 @@ AwesomeApp.start()
 ## App
 All Russet apps are a collection of bundles.
 The app itself usually requires minimal updates, and is essentially used to register your bundles.
-```
+``` javascript
 'use strict';
 
 const russet = require('russet')
@@ -73,7 +73,7 @@ stores, routes, and templates.
 
 Each bundle requires a bundle object to register the routes.
 
-```
+``` javascript
 'use strict';
 
 const russet = require('russet')
@@ -95,7 +95,7 @@ class MyBundle extends russet.Bundle
 ## Routes
 Routes for Russet are defined via a simply key => function syntax.
 The key begins with an HTTP Verb, and then the path to match. 
-```
+``` javascript
 'use strict';
 
 var LandingController = require('./controller/landing')
@@ -112,7 +112,7 @@ and should return a russet.Response object.
 The function will receive a http.Request object, a http.Response object (which
 allows you to end the response outside of russet),
 and if the URL contains parameters, a 3rd object with the parameters:
-```
+``` javascript
 'use strict';
 
 const russet = require('russet')
@@ -130,7 +130,7 @@ When using TypeScript, routes can use the Route Sanitizer Decorator from beef
 ## Template Response
 Russet allows you to return React objects in a response which will be rendered out to a string
 using ReactServer.
-```
+``` jsx
 //written using jsx
 'use strict';
 const russet = require('russet')
