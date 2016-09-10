@@ -14,10 +14,6 @@ var extend = require('extend');
 var RoutingService = beef.RoutingService;
 var CoreApp = (function () {
     function CoreApp() {
-        this.server = connect();
-        this.server.use(bodyParser.urlencoded());
-        this.server.use(serveStatic('public'));
-        this.server.use(this.serve);
         this.registeredRoutes = {};
         this.registerBundle = this.registerBundle.bind(this);
         this.buildRoutes = this.buildRoutes.bind(this);
@@ -45,6 +41,10 @@ var CoreApp = (function () {
         next();
     };
     CoreApp.prototype.start = function () {
+        this.server = connect();
+        this.server.use(bodyParser.urlencoded());
+        this.server.use(serveStatic('public'));
+        this.server.use(this.serve);
         this.bundles().forEach(this.registerBundle);
         var finalConfig = extend(true, {}, this.defaultConfig(), this.config());
         http.createServer(this.server).listen(finalConfig.port);

@@ -29,11 +29,6 @@ export class CoreApp
 
     constructor()
     {
-        this.server = connect()
-        this.server.use(bodyParser.urlencoded())
-        this.server.use(serveStatic('public'))
-        this.server.use(this.serve)
-
         this.registeredRoutes = {}
 
         this.registerBundle = this.registerBundle.bind(this)
@@ -75,6 +70,11 @@ export class CoreApp
 
     start()
     {
+        this.server = connect()
+        this.server.use(bodyParser.urlencoded())
+        this.server.use(serveStatic('public'))
+        this.server.use(this.serve)
+        
         this.bundles().forEach(this.registerBundle)
 
         let finalConfig : RussetConfig = extend(true, {}, this.defaultConfig(), this.config())
