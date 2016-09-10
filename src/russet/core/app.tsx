@@ -68,14 +68,21 @@ export class CoreApp
         next()
     }
 
+    init()
+    {
+        this.bundles().forEach(this.registerBundle)
+
+         RoutingService.routes(this.registeredRoutes)
+    }
+
     start()
     {
         this.server = connect()
         this.server.use(bodyParser.urlencoded())
         this.server.use(serveStatic('public'))
         this.server.use(this.serve)
-        
-        this.bundles().forEach(this.registerBundle)
+
+        this.init()
 
         let finalConfig : RussetConfig = extend(true, {}, this.defaultConfig(), this.config())
         http.createServer(this.server).listen(finalConfig.port)
@@ -83,6 +90,7 @@ export class CoreApp
 
     startClient(domElement : HTMLElement)
     {
+        this.init()
         //TODO: allow reading from hash or full url via config
         ReactDOM.render(<RussetClient />, domElement)
     }
@@ -97,8 +105,6 @@ export class CoreApp
         bundle.routes().forEach((Routes) => {
             this.buildRoutes(Routes)
         })
-
-        RoutingService.routes(this.registeredRoutes)
     }
 
     protected buildRoutes(_buildRoutes)

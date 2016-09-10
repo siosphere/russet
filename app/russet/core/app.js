@@ -40,16 +40,21 @@ var CoreApp = (function () {
         response.end(russetResponse.content);
         next();
     };
+    CoreApp.prototype.init = function () {
+        this.bundles().forEach(this.registerBundle);
+        RoutingService.routes(this.registeredRoutes);
+    };
     CoreApp.prototype.start = function () {
         this.server = connect();
         this.server.use(bodyParser.urlencoded());
         this.server.use(serveStatic('public'));
         this.server.use(this.serve);
-        this.bundles().forEach(this.registerBundle);
+        this.init();
         var finalConfig = extend(true, {}, this.defaultConfig(), this.config());
         http.createServer(this.server).listen(finalConfig.port);
     };
     CoreApp.prototype.startClient = function (domElement) {
+        this.init();
         //TODO: allow reading from hash or full url via config
         ReactDOM.render(React.createElement(client_1.RussetClient, null), domElement);
     };
@@ -61,7 +66,6 @@ var CoreApp = (function () {
         bundle.routes().forEach(function (Routes) {
             _this.buildRoutes(Routes);
         });
-        RoutingService.routes(this.registeredRoutes);
     };
     CoreApp.prototype.buildRoutes = function (_buildRoutes) {
         for (var key in _buildRoutes) {
