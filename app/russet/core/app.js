@@ -5,8 +5,10 @@ var connect = require('connect');
 var bodyParser = require('body-parser');
 var http = require('http');
 var serveStatic = require('serve-static');
+var React = require("react");
 var ReactDOM = require("react-dom");
 var workchain_1 = require("./workchain");
+var client_1 = require('./client');
 var beef = require('beef');
 var extend = require('extend');
 var RoutingService = beef.RoutingService;
@@ -49,7 +51,7 @@ var CoreApp = (function () {
     };
     CoreApp.prototype.startClient = function (domElement) {
         //TODO: allow reading from hash or full url via config
-        ReactDOM.render(/>, domElement));
+        ReactDOM.render(React.createElement(client_1.RussetClient, null), domElement);
     };
     CoreApp.prototype.getRoutes = function () {
         return this.registeredRoutes;

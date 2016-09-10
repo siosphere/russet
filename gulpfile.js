@@ -5,7 +5,9 @@ var dts = require('dts-bundle');
 
 var files = [
     './src/*.ts',
-    './src/**/*.ts'
+    './src/**/*.ts',
+    './src/*.tsx',
+    './src/**/*.tsx'
 ];
 
 gulp.task('build_definitions', function() {

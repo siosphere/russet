@@ -45,6 +45,8 @@ declare module 'russet/core/app' {
         bundles(): Bundle[];
         serve(request: http.ServerRequest, response: http.ServerResponse, next: (...any) => any): any;
         start(): void;
+        startClient(domElement: HTMLElement): void;
+        getRoutes(): any;
         protected registerBundle(bundle: Bundle): void;
         protected buildRoutes(_buildRoutes: any): void;
         protected config(): RussetConfig;
