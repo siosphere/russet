@@ -5,7 +5,7 @@
 
 import ReactDOMServer = require('react-dom/server')
 import {Response} from "../web/response"
-import Global = require('../global')
+import {Global} from '../global'
 
 export let TemplateResponse = function()
 {
