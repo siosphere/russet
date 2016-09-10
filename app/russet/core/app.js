@@ -21,7 +21,7 @@ var CoreApp = (function () {
         this.registeredRoutes = {};
         this.registerBundle = this.registerBundle.bind(this);
         this.buildRoutes = this.buildRoutes.bind(this);
-        this.getRoutes = this.getRoutes().bind(this);
+        this.getRoutes = this.getRoutes.bind(this);
     }
     CoreApp.prototype.bundles = function () {
         return [];

@@ -38,7 +38,7 @@ export class CoreApp
 
         this.registerBundle = this.registerBundle.bind(this)
         this.buildRoutes = this.buildRoutes.bind(this)
-        this.getRoutes = this.getRoutes().bind(this)
+        this.getRoutes = this.getRoutes.bind(this)
     }
 
     bundles() : Bundle[]

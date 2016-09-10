@@ -13,8 +13,6 @@
     "body-parser": "^1.15.2",
     "connect": "^3.4.1",
     "extend": "^3.0.0",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
     "serve-static": "^1.11.1"
   },
   "devDependencies": {
