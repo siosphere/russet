@@ -23,6 +23,12 @@ declare module 'russet/russet' {
         WorkchainResponse: typeof WorkchainResponseClass;
         ResponseWorkchain: (request: any, response: any) => WorkchainResponseClass;
         ClientRoute: (path: any, config?: any) => (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+        Global: {
+            setClient(): void;
+            setServer(): void;
+            isClient(): boolean;
+            isServer(): boolean;
+        };
     }
 }
 

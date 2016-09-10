@@ -5,6 +5,7 @@
 
 import ReactDOMServer = require('react-dom/server')
 import {Response} from "../web/response"
+import Global = require('../global')
 
 export let TemplateResponse = function()
 {
@@ -14,7 +15,7 @@ export let TemplateResponse = function()
 
         descriptor.value = function()
         {
-            return new Response(RenderTemplate(method.apply(target, arguments)))
+            return Global.isServer() ? new Response(RenderTemplate(method.apply(target, arguments))) : method.apply(target, arguments)
         }
     }
 }
