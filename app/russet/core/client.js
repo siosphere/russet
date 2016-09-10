@@ -14,7 +14,7 @@ var RussetClient = (function (_super) {
     function RussetClient() {
         _super.call(this);
         this.state = {
-            url: window.location.href
+            url: window.location.pathname
         };
         this.onHashChange = this.onHashChange.bind(this);
     }
@@ -27,6 +27,9 @@ var RussetClient = (function (_super) {
     RussetClient.prototype.onHashChange = function (e) {
         console.log('the hash has changed');
         var hash = window.location.hash.substring(1);
+        if (hash.charAt(0) !== '/') {
+            hash = "/" + hash;
+        }
         window.history.pushState({}, "", hash);
         this.state = {
             url: hash

@@ -22,7 +22,7 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
         super()
         
         this.state = {
-            url: window.location.href
+            url: window.location.pathname
         }
 
         this.onHashChange = this.onHashChange.bind(this)
@@ -42,6 +42,10 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
     {
         console.log('the hash has changed')
         let hash = window.location.hash.substring(1)
+        if(hash.charAt(0) !== '/') {
+            hash = "/" + hash
+        }
+        
         window.history.pushState({}, "", hash)
         this.state = {
             url: hash
