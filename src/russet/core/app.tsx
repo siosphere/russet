@@ -5,9 +5,11 @@ import bodyParser = require('body-parser')
 import http = require('http')
 import serveStatic = require('serve-static')
 import * as React from "react";
+import * as ReactDOM from "react-dom"
 import ReactDOMServer = require('react-dom/server')
 import {Response} from "./web/response"
 import {WorkchainResponse} from "./workchain"
+import {RussetClient} from './client'
 import {Bundle} from "./bundle"
 import beef = require('beef')
 import extend = require('extend')
@@ -36,6 +38,7 @@ export class CoreApp
 
         this.registerBundle = this.registerBundle.bind(this)
         this.buildRoutes = this.buildRoutes.bind(this)
+        this.getRoutes = this.getRoutes().bind(this)
     }
 
     bundles() : Bundle[]
@@ -76,6 +79,17 @@ export class CoreApp
 
         let finalConfig : RussetConfig = extend(true, {}, this.defaultConfig(), this.config())
         http.createServer(this.server).listen(finalConfig.port)
+    }
+
+    startClient(domElement : HTMLElement)
+    {
+        //TODO: allow reading from hash or full url via config
+        ReactDOM.render(<RussetClient />, domElement)
+    }
+
+    getRoutes()
+    {
+        return this.registeredRoutes
     }
 
     protected registerBundle(bundle : Bundle)

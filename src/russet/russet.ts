@@ -4,6 +4,7 @@ import {TemplateResponse as TemplateResponseClass} from "./core/templating/templ
 import {ApiResponse as ApiResponseClass} from "./core/web/api-response"
 import {Response as ResponseClass} from "./core/web/response"
 import {WorkchainResponse as WorkchainResponseClass, ResponseWorkchain as ResponseWorkchainClass} from "./core/workchain"
+import {ClientRoute} from "./core/client/client-route"
 
 export class RussetExportClass
 {
@@ -20,4 +21,6 @@ export class RussetExportClass
     WorkchainResponse = WorkchainResponseClass
     
     ResponseWorkchain = ResponseWorkchainClass
+
+    ClientRoute = ClientRoute
 }

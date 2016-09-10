@@ -5,6 +5,7 @@ var connect = require('connect');
 var bodyParser = require('body-parser');
 var http = require('http');
 var serveStatic = require('serve-static');
+var ReactDOM = require("react-dom");
 var workchain_1 = require("./workchain");
 var beef = require('beef');
 var extend = require('extend');
@@ -18,6 +19,7 @@ var CoreApp = (function () {
         this.registeredRoutes = {};
         this.registerBundle = this.registerBundle.bind(this);
         this.buildRoutes = this.buildRoutes.bind(this);
+        this.getRoutes = this.getRoutes().bind(this);
     }
     CoreApp.prototype.bundles = function () {
         return [];
@@ -44,6 +46,13 @@ var CoreApp = (function () {
         this.bundles().forEach(this.registerBundle);
         var finalConfig = extend(true, {}, this.defaultConfig(), this.config());
         http.createServer(this.server).listen(finalConfig.port);
+    };
+    CoreApp.prototype.startClient = function (domElement) {
+        //TODO: allow reading from hash or full url via config
+        ReactDOM.render(/>, domElement));
+    };
+    CoreApp.prototype.getRoutes = function () {
+        return this.registeredRoutes;
     };
     CoreApp.prototype.registerBundle = function (bundle) {
         var _this = this;
