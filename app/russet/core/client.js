@@ -25,15 +25,16 @@ var RussetClient = (function (_super) {
         window.removeEventListener('hashchange', this.onHashChange);
     };
     RussetClient.prototype.onHashChange = function (e) {
-        console.log('the hash has changed');
         var hash = window.location.hash.substring(1);
         if (hash.charAt(0) !== '/') {
             hash = "/" + hash;
         }
         window.history.pushState({}, "", hash);
-        this.state = {
+        var state = this.state;
+        state = {
             url: hash
         };
+        this.setState(state);
     };
     RussetClient.prototype.render = function () {
         return RoutingService.doRouting(this.state.url);
