@@ -29,7 +29,7 @@ var RussetClient = (function (_super) {
         if (hash.charAt(0) !== '/') {
             hash = "/" + hash;
         }
-        window.history.pushState({}, "", hash);
+        window.history.replaceState({}, "", hash);
         var state = this.state;
         state = {
             url: hash

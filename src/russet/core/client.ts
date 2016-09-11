@@ -45,7 +45,7 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
             hash = "/" + hash
         }
 
-        window.history.pushState({}, "", hash)
+        window.history.replaceState({}, "", hash)
         let state = this.state
 
         state = {
