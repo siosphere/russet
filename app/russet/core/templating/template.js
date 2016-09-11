@@ -10,7 +10,8 @@ exports.TemplateResponse = function () {
     return function (target, propertyKey, descriptor) {
         var method = target[propertyKey];
         descriptor.value = function () {
-            return global_1.Global.isServer() ? new response_1.Response(exports.RenderTemplate(method.apply(target, arguments))) : method.apply(target, arguments);
+            var page = method.apply(target, arguments);
+            return global_1.Global.isServer() ? new response_1.Response('<html><head>' + exports.RenderTemplate(page['block:head']()) + '</head><body>' + exports.RenderTemplate(page['block:body']()) + '</body></html>') : method.apply(target, arguments);
         };
     };
 };

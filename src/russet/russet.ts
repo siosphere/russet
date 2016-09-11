@@ -6,6 +6,7 @@ import {Response as ResponseClass} from "./core/web/response"
 import {WorkchainResponse as WorkchainResponseClass, ResponseWorkchain as ResponseWorkchainClass} from "./core/workchain"
 import {ClientRoute} from "./core/client/client-route"
 import {Global} from './core/global'
+import {HtmlPage as HtmlPageClass} from "./core/templating/html-page"
 
 export class RussetExportClass
 {
@@ -26,4 +27,6 @@ export class RussetExportClass
     ClientRoute = ClientRoute
 
     Global = Global
+    
+    HtmlPage = HtmlPageClass
 }

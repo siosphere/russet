@@ -15,7 +15,8 @@ export let TemplateResponse = function()
 
         descriptor.value = function()
         {
-            return Global.isServer() ? new Response(RenderTemplate(method.apply(target, arguments))) : method.apply(target, arguments)
+            let page = method.apply(target, arguments)
+            return Global.isServer() ? new Response('<html><head>'+ RenderTemplate(page['block:head']()) +'</head><body>' + RenderTemplate(page['block:body']()) + '</body></html>' ) : method.apply(target, arguments)
         }
     }
 }

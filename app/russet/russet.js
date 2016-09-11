@@ -7,6 +7,7 @@ var response_1 = require("./core/web/response");
 var workchain_1 = require("./core/workchain");
 var client_route_1 = require("./core/client/client-route");
 var global_1 = require('./core/global');
+var html_page_1 = require("./core/templating/html-page");
 var RussetExportClass = (function () {
     function RussetExportClass() {
         this.App = app_1.CoreApp;
@@ -18,6 +19,7 @@ var RussetExportClass = (function () {
         this.ResponseWorkchain = workchain_1.ResponseWorkchain;
         this.ClientRoute = client_route_1.ClientRoute;
         this.Global = global_1.Global;
+        this.HtmlPage = html_page_1.HtmlPage;
     }
     return RussetExportClass;
 }());

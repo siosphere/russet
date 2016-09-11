@@ -14,6 +14,7 @@ declare module 'russet/russet' {
     import { ApiResponse as ApiResponseClass } from "russet/core/web/api-response";
     import { Response as ResponseClass } from "russet/core/web/response";
     import { WorkchainResponse as WorkchainResponseClass } from "russet/core/workchain";
+    import { HtmlPage as HtmlPageClass } from "russet/core/templating/html-page";
     export class RussetExportClass {
         App: typeof CoreApp;
         Bundle: typeof BundleClass;
@@ -29,6 +30,7 @@ declare module 'russet/russet' {
             isClient(): boolean;
             isServer(): boolean;
         };
+        HtmlPage: typeof HtmlPageClass;
     }
 }
 
@@ -166,5 +168,13 @@ declare module 'russet/core/workchain' {
         protected runErrorCallable(callable: WorkchainErrorCallable): void;
     }
     export const ResponseWorkchain: (request: any, response: any) => WorkchainResponse;
+}
+
+declare module 'russet/core/templating/html-page' {
+    class HtmlPage {
+        ['block:head'](): any;
+        ['block:body'](): any;
+    }
+    export { HtmlPage };
 }
 
