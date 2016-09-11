@@ -8,6 +8,9 @@ var HtmlPage = (function () {
     HtmlPage.prototype['block:body'] = function () {
         return null;
     };
+    HtmlPage.prototype['block:foot'] = function () {
+        return null;
+    };
     return HtmlPage;
 }());
 exports.HtmlPage = HtmlPage;

@@ -11,7 +11,7 @@ exports.TemplateResponse = function () {
         var method = target[propertyKey];
         descriptor.value = function () {
             var page = method.apply(target, arguments);
-            return global_1.Global.isServer() ? new response_1.Response('<html><head>' + exports.RenderTemplate(page['block:head']()) + '</head><body><div id="russet">' + exports.RenderTemplate(page['block:body']()) + '</div></body></html>') : method.apply(target, arguments);
+            return global_1.Global.isServer() ? new response_1.Response('<html><head>' + exports.RenderTemplate(page['block:head']()) + '</head><body><div id="russet">' + exports.RenderTemplate(page['block:body']()) + '</div>' + exports.RenderTemplate(page['block:foot']()) + '</body></html>') : method.apply(target, arguments);
         };
     };
 };

@@ -9,6 +9,11 @@ class HtmlPage
     {
         return null
     }
+
+    ['block:foot']()
+    {
+        return null
+    }
 }
 
 export {
