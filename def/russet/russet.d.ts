@@ -18,7 +18,7 @@ declare module 'russet/russet' {
     export class RussetExportClass {
         App: typeof CoreApp;
         Bundle: typeof BundleClass;
-        TemplateResponse: () => (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+        TemplateResponse: (HtmlLayout: any) => (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
         ApiResponse: typeof ApiResponseClass;
         Response: typeof ResponseClass;
         WorkchainResponse: typeof WorkchainResponseClass;
