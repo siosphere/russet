@@ -88,11 +88,11 @@ export class CoreApp
         http.createServer(this.server).listen(finalConfig.port)
     }
 
-    startClient(domElement : HTMLElement)
+    startClient()
     {
         this.init()
         //TODO: allow reading from hash or full url via config
-        ReactDOM.render(<RussetClient />, domElement)
+        ReactDOM.render(<RussetClient />, document.getElementById('russet'))
     }
 
     getRoutes()

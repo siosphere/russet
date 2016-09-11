@@ -54,7 +54,7 @@ declare module 'russet/core/app' {
         serve(request: http.ServerRequest, response: http.ServerResponse, next: (...any) => any): any;
         init(): void;
         start(): void;
-        startClient(domElement: HTMLElement): void;
+        startClient(): void;
         getRoutes(): any;
         protected registerBundle(bundle: Bundle): void;
         protected buildRoutes(_buildRoutes: any): void;

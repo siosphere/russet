@@ -53,10 +53,10 @@ var CoreApp = (function () {
         var finalConfig = extend(true, {}, this.defaultConfig(), this.config());
         http.createServer(this.server).listen(finalConfig.port);
     };
-    CoreApp.prototype.startClient = function (domElement) {
+    CoreApp.prototype.startClient = function () {
         this.init();
         //TODO: allow reading from hash or full url via config
-        ReactDOM.render(React.createElement(client_1.RussetClient, null), domElement);
+        ReactDOM.render(React.createElement(client_1.RussetClient, null), document.getElementById('russet'));
     };
     CoreApp.prototype.getRoutes = function () {
         return this.registeredRoutes;
