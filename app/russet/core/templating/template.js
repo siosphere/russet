@@ -13,9 +13,9 @@ exports.TemplateResponse = function (HtmlLayout) {
         descriptor.value = function () {
             var page = new HtmlLayout(method.apply(target, arguments));
             if (currentTemplateResponse === null) {
-                currentTemplateResponse = HtmlLayout.constructor.name;
+                currentTemplateResponse = HtmlLayout.LAYOUT_ID;
             }
-            if (!global_1.Global.isServer() && currentTemplateResponse !== HtmlLayout.constructor.name) {
+            if (!global_1.Global.isServer() && HtmlLayout.LAYOUT_ID !== currentTemplateResponse) {
                 return { redirect: true };
             }
             return global_1.Global.isServer() ? new response_1.Response('<html><head>' + exports.RenderTemplate(page['block:head']()) + '</head><body><div id="russet">' + exports.RenderTemplate(page['block:body']()) + '</div>' + exports.RenderTemplate(page['block:foot']()) + '</body></html>') : page['block:body']();

@@ -21,10 +21,10 @@ export let TemplateResponse = function(HtmlLayout)
             let page = new HtmlLayout(method.apply(target, arguments))
 
             if(currentTemplateResponse === null) {
-                currentTemplateResponse = HtmlLayout.constructor.name
+                currentTemplateResponse = HtmlLayout.LAYOUT_ID
             }
 
-            if(!Global.isServer() && currentTemplateResponse !== HtmlLayout.constructor.name) {
+            if(!Global.isServer() && HtmlLayout.LAYOUT_ID !== currentTemplateResponse) {
                 return { redirect: true }
             }
 
