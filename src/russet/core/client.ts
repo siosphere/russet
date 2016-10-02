@@ -17,6 +17,8 @@ export interface RussetClientState
 
 export class RussetClient extends React.Component<RussetClientProps, RussetClientState>
 {
+    protected interval : any
+
     constructor()
     {
         super()
@@ -24,8 +26,6 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
         this.state = {
             url: window.location.pathname
         }
-
-        this.onHashChange = this.onHashChange.bind(this)
     }
 
     componentWillMount()
@@ -33,9 +33,20 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
         window.addEventListener('hashchange', this.onHashChange)
     }
 
+    componentDidMount()
+    {
+        this.interval = setInterval(() => {
+            if(this.state.url !== window.location.pathname) {
+                let state = this.state
+                this.state.url = window.location.pathname
+                this.setState(state)
+            }
+        }, 200)
+    }
+
     componentWillUnmount()
     {
-        window.removeEventListener('hashchange', this.onHashChange)
+        clearInterval(this.interval)
     }
 
     protected onHashChange(e : HashChangeEvent)

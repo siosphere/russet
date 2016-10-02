@@ -16,13 +16,22 @@ var RussetClient = (function (_super) {
         this.state = {
             url: window.location.pathname
         };
-        this.onHashChange = this.onHashChange.bind(this);
     }
     RussetClient.prototype.componentWillMount = function () {
         window.addEventListener('hashchange', this.onHashChange);
     };
+    RussetClient.prototype.componentDidMount = function () {
+        var _this = this;
+        this.interval = setInterval(function () {
+            if (_this.state.url !== window.location.pathname) {
+                var state = _this.state;
+                _this.state.url = window.location.pathname;
+                _this.setState(state);
+            }
+        }, 200);
+    };
     RussetClient.prototype.componentWillUnmount = function () {
-        window.removeEventListener('hashchange', this.onHashChange);
+        clearInterval(this.interval);
     };
     RussetClient.prototype.onHashChange = function (e) {
         var hash = window.location.hash.substring(1);

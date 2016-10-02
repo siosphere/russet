@@ -12,6 +12,7 @@
     "beef": "github:siosphere/beefjs#11.x",
     "body-parser": "^1.15.2",
     "connect": "^3.4.1",
+    "dts-bundle": "^0.5.0",
     "extend": "^3.0.0",
     "serve-static": "^1.11.1"
   },
