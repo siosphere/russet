@@ -8,6 +8,8 @@ import {Response} from "../web/response"
 import {Global} from '../global'
 import {HtmlPage} from './html-page'
 
+let currentTemplateResponse = null
+
 export let TemplateResponse = function(HtmlLayout)
 {
     return function(target : any, propertyKey : string, descriptor : PropertyDescriptor)
@@ -17,6 +19,15 @@ export let TemplateResponse = function(HtmlLayout)
         descriptor.value = function()
         {
             let page = new HtmlLayout(method.apply(target, arguments))
+
+            if(currentTemplateResponse === null) {
+                currentTemplateResponse = HtmlLayout.constructor.name
+            }
+
+            if(!Global.isServer() && currentTemplateResponse !== HtmlLayout.constructor.name) {
+                return { redirect: true }
+            }
+
             return Global.isServer() ? new Response('<html><head>'+ RenderTemplate(page['block:head']()) +'</head><body><div id="russet">' + RenderTemplate(page['block:body']()) + '</div>' + RenderTemplate(page['block:foot']()) + '</body></html>' ) : page['block:body']()
         }
     }

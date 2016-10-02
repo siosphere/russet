@@ -46,7 +46,16 @@ var RussetClient = (function (_super) {
         this.setState(state);
     };
     RussetClient.prototype.render = function () {
-        return RoutingService.doRouting(this.state.url);
+        var response = RoutingService.doRouting(this.state.url);
+        if (response && response.redirect) {
+            this.doRedirect();
+            return null;
+        }
+        return response;
+    };
+    RussetClient.prototype.doRedirect = function () {
+        console.log('doing redirect');
+        window.location.reload();
     };
     return RussetClient;
 }(React.Component));

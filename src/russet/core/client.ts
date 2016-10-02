@@ -68,6 +68,19 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
 
     render()
     {
-        return RoutingService.doRouting(this.state.url)
+        let response = RoutingService.doRouting(this.state.url)
+
+        if(response && response.redirect) {
+            this.doRedirect()
+            return null
+        }
+
+        return response
+    }
+
+    doRedirect()
+    {
+        console.log('doing redirect')
+        window.location.reload()
     }
 }
