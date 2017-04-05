@@ -1,5 +1,4 @@
 /// <reference path="../../../typings/index.d.ts" />
-/// <reference path="../../../node_modules/beef/dist/typings/index.d.ts" />
 import connect = require('connect')
 import bodyParser = require('body-parser')
 import http = require('http')
@@ -11,7 +10,7 @@ import {Response} from "./web/response"
 import {WorkchainResponse} from "./workchain"
 import {RussetClient} from './client'
 import {Bundle} from "./bundle"
-import beef = require('beef')
+import beef = require('beef-flux')
 import extend = require('extend')
 
 let RoutingService = beef.RoutingService

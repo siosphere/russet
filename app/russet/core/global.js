@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var GLOBAL_TYPE = "server";
 var Global = {
     setClient: function () {

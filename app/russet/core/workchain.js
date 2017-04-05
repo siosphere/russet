@@ -1,9 +1,15 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
 var response_1 = require("./web/response");
 var WorkchainCallableClass = (function () {
     function WorkchainCallableClass(callable) {
@@ -17,16 +23,17 @@ var WorkchainCallableClass = (function () {
 var WorkchainResponse = (function (_super) {
     __extends(WorkchainResponse, _super);
     function WorkchainResponse(request, response) {
-        _super.call(this);
-        this.request = request;
-        this.response = response;
-        this.shouldExit = false;
-        this.errorCallables = [];
-        this.runCallable = this.runCallable.bind(this);
-        this.pipe = this.pipe.bind(this);
-        this.finally = this.finally.bind(this);
-        this.error = this.error.bind(this);
-        this.errorStack = [];
+        var _this = _super.call(this) || this;
+        _this.request = request;
+        _this.response = response;
+        _this.shouldExit = false;
+        _this.errorCallables = [];
+        _this.runCallable = _this.runCallable.bind(_this);
+        _this.pipe = _this.pipe.bind(_this);
+        _this.finally = _this.finally.bind(_this);
+        _this.error = _this.error.bind(_this);
+        _this.errorStack = [];
+        return _this;
     }
     WorkchainResponse.prototype.pipe = function (callable) {
         if (this.errorStack.length === 0) {

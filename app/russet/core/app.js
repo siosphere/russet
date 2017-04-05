@@ -1,16 +1,15 @@
 "use strict";
-/// <reference path="../../../typings/index.d.ts" />
-/// <reference path="../../../node_modules/beef/dist/typings/index.d.ts" />
-var connect = require('connect');
-var bodyParser = require('body-parser');
-var http = require('http');
-var serveStatic = require('serve-static');
+Object.defineProperty(exports, "__esModule", { value: true });
+var connect = require("connect");
+var bodyParser = require("body-parser");
+var http = require("http");
+var serveStatic = require("serve-static");
 var React = require("react");
 var ReactDOM = require("react-dom");
 var workchain_1 = require("./workchain");
-var client_1 = require('./client');
-var beef = require('beef');
-var extend = require('extend');
+var client_1 = require("./client");
+var beef = require("beef-flux");
+var extend = require("extend");
 var RoutingService = beef.RoutingService;
 var CoreApp = (function () {
     function CoreApp() {
@@ -30,7 +29,6 @@ var CoreApp = (function () {
         if (!russetResponse) {
             return next();
         }
-        //check if the response is a workchain, in which case, defer rendering until completed
         if (russetResponse instanceof workchain_1.WorkchainResponse) {
             var workchainResponse = russetResponse;
             russetResponse = workchainResponse.getResponse();
@@ -55,7 +53,6 @@ var CoreApp = (function () {
     };
     CoreApp.prototype.startClient = function () {
         this.init();
-        //TODO: allow reading from hash or full url via config
         ReactDOM.render(React.createElement(client_1.RussetClient, null), document.getElementById('russet'));
     };
     CoreApp.prototype.getRoutes = function () {

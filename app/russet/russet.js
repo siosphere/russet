@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var bundle_1 = require("./core/bundle");
 var app_1 = require("./core/app");
 var template_1 = require("./core/templating/template");
@@ -6,21 +7,20 @@ var api_response_1 = require("./core/web/api-response");
 var response_1 = require("./core/web/response");
 var workchain_1 = require("./core/workchain");
 var client_route_1 = require("./core/client/client-route");
-var global_1 = require('./core/global');
+var global_1 = require("./core/global");
 var html_page_1 = require("./core/templating/html-page");
-var RussetExportClass = (function () {
-    function RussetExportClass() {
-        this.App = app_1.CoreApp;
-        this.Bundle = bundle_1.Bundle;
-        this.TemplateResponse = template_1.TemplateResponse;
-        this.ApiResponse = api_response_1.ApiResponse;
-        this.Response = response_1.Response;
-        this.WorkchainResponse = workchain_1.WorkchainResponse;
-        this.ResponseWorkchain = workchain_1.ResponseWorkchain;
-        this.ClientRoute = client_route_1.ClientRoute;
-        this.Global = global_1.Global;
-        this.HtmlPage = html_page_1.HtmlPage;
-    }
-    return RussetExportClass;
-}());
-exports.RussetExportClass = RussetExportClass;
+var client_1 = require("./core/client");
+exports.default = {
+    App: app_1.CoreApp,
+    Bundle: bundle_1.Bundle,
+    TemplateResponse: template_1.TemplateResponse,
+    RenderTemplate: template_1.RenderTemplate,
+    ApiResponse: api_response_1.ApiResponse,
+    Response: response_1.Response,
+    WorkchainResponse: workchain_1.WorkchainResponse,
+    ResponseWorkchain: workchain_1.ResponseWorkchain,
+    ClientRoute: client_route_1.ClientRoute,
+    Global: global_1.Global,
+    HtmlPage: html_page_1.HtmlPage,
+    RussetClient: client_1.RussetClient
+};

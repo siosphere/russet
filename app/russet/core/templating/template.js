@@ -1,11 +1,8 @@
-/// <reference path="../../../../typings/index.d.ts" />
-/**
- * Template decorator
- */
 "use strict";
-var ReactDOMServer = require('react-dom/server');
+Object.defineProperty(exports, "__esModule", { value: true });
+var ReactDOMServer = require("react-dom/server");
 var response_1 = require("../web/response");
-var global_1 = require('../global');
+var global_1 = require("../global");
 var currentTemplateResponse = null;
 exports.TemplateResponse = function (HtmlLayout) {
     return function (target, propertyKey, descriptor) {

@@ -1,8 +1,7 @@
 /// <reference path="../../../typings/index.d.ts" />
-/// <reference path="../../../node_modules/beef/dist/typings/index.d.ts" />
 
 import React = require('react')
-import beef = require('beef')
+import * as beef from 'beef-flux'
 
 const RoutingService = beef.RoutingService
 

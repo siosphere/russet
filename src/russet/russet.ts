@@ -1,32 +1,37 @@
 import {Bundle as BundleClass} from "./core/bundle"
 import {CoreApp} from "./core/app"
-import {TemplateResponse as TemplateResponseClass} from "./core/templating/template"
+import {TemplateResponse as TemplateResponseClass, RenderTemplate} from "./core/templating/template"
 import {ApiResponse as ApiResponseClass} from "./core/web/api-response"
 import {Response as ResponseClass} from "./core/web/response"
 import {WorkchainResponse as WorkchainResponseClass, ResponseWorkchain as ResponseWorkchainClass} from "./core/workchain"
 import {ClientRoute} from "./core/client/client-route"
 import {Global} from './core/global'
 import {HtmlPage as HtmlPageClass} from "./core/templating/html-page"
+import {RussetClient} from './core/client'
 
-export class RussetExportClass
+export default
 {
-    App = CoreApp
+    App: CoreApp,
 
-    Bundle = BundleClass
+    Bundle: BundleClass,
 
-    TemplateResponse = TemplateResponseClass
+    TemplateResponse:TemplateResponseClass,
 
-    ApiResponse = ApiResponseClass
+    RenderTemplate: RenderTemplate,
 
-    Response = ResponseClass
+    ApiResponse: ApiResponseClass,
 
-    WorkchainResponse = WorkchainResponseClass
+    Response: ResponseClass,
+
+    WorkchainResponse: WorkchainResponseClass,
     
-    ResponseWorkchain = ResponseWorkchainClass
+    ResponseWorkchain: ResponseWorkchainClass,
 
-    ClientRoute = ClientRoute
+    ClientRoute: ClientRoute,
 
-    Global = Global
+    Global: Global,
     
-    HtmlPage = HtmlPageClass
+    HtmlPage: HtmlPageClass,
+    
+    RussetClient: RussetClient
 }

@@ -3,6 +3,8 @@ var uglify = require('gulp-uglify');
 var ts = require('gulp-typescript');
 var dts = require('dts-bundle');
 
+var tsProject = ts.createProject('tsconfig.json')
+
 var files = [
     './src/*.ts',
     './src/**/*.ts',
@@ -11,14 +13,11 @@ var files = [
 ];
 
 gulp.task('build_definitions', function() {
-    return gulp.src(files)
-    .pipe(ts({
-        sortOutput: true,
-        declarationFiles: true,
-        experimentalDecorators: true,
-        target: 'ES5',
-        jsx: 'react'
-    }))
+    var proj = tsProject.src()
+    .pipe(tsProject())
+    ;
+
+    return proj
     .dts
     .pipe(gulp.dest('./def/'))
 })
@@ -26,21 +25,15 @@ gulp.task('build_definitions', function() {
 gulp.task('definitions', ['build_definitions'], function() {
     dts.bundle({
         name: 'russet',
-        main: 'def/russet/exports.d.ts'
+        main: 'def/exports.d.ts'
     });
 })
 
 gulp.task('compile', function() {
-    return gulp.src(files)
-    .pipe(ts({
-        sortOutput: true,
-        declarationFiles: false,
-        experimentalDecorators: true,
-        target: 'ES5',
-        jsx: 'react'
-    }))
+    return tsProject.src()
+    .pipe(tsProject())
     .js
-    .pipe(gulp.dest('./app/'))
+    .pipe(gulp.dest('./app/russet/'))
 })
 
 gulp.task('default', ['compile'], function(){

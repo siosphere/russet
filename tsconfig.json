@@ -4,10 +4,14 @@
         "module": "commonjs",
         "sourceMap": true,
         "jsx": "react",
-        "experimentalDecorators": true
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "declaration": true,
+        "declarationDir": "./def/"
     },
-    "files": [
+    "include": [
         "./typings/index.d.ts",
-        "./src/**/*.tsx"
+        "./src/**/*.tsx",
+        "./src/**/*.ts"
     ]
 }

@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var HTTPStatusCode;
 (function (HTTPStatusCode) {
     HTTPStatusCode[HTTPStatusCode["CONTINUE"] = 100] = "CONTINUE";
     HTTPStatusCode[HTTPStatusCode["SWITCHING_PROTOCOLS"] = 101] = "SWITCHING_PROTOCOLS";
@@ -52,8 +54,7 @@
     HTTPStatusCode[HTTPStatusCode["HTTP_VERSION_NOT_SUPPORTED"] = 505] = "HTTP_VERSION_NOT_SUPPORTED";
     HTTPStatusCode[HTTPStatusCode["INSUFFICIENT_STORAGE"] = 507] = "INSUFFICIENT_STORAGE";
     HTTPStatusCode[HTTPStatusCode["NETWORK_AUTHENTICATION_REQUIRED"] = 511] = "NETWORK_AUTHENTICATION_REQUIRED";
-})(exports.HTTPStatusCode || (exports.HTTPStatusCode = {}));
-var HTTPStatusCode = exports.HTTPStatusCode;
+})(HTTPStatusCode = exports.HTTPStatusCode || (exports.HTTPStatusCode = {}));
 var ResponseHeader = (function () {
     function ResponseHeader(name, value) {
         this.name = name;
