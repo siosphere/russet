@@ -1,10 +1,10 @@
-import { Bundle } from "./app/russet/core/bundle";
-import { CoreApp } from "./app/russet/core/app";
-import { ApiResponse } from "./app/russet/core/web/api-response";
-import { Response } from "./app/russet/core/web/response";
-import { WorkchainResponse } from "./app/russet/core/workchain";
-import { HtmlPage } from "./app/russet/core/templating/html-page";
-import { RussetClient } from './app/russet/core/client';
+import { Bundle } from "./core/bundle";
+import { CoreApp } from "./core/app";
+import { ApiResponse } from "./core/web/api-response";
+import { Response } from "./core/web/response";
+import { WorkchainResponse } from "./core/workchain";
+import { HtmlPage } from "./core/templating/html-page";
+import { RussetClient } from './core/client';
 declare var _default: {
     CoreApp: typeof CoreApp;
     Bundle: typeof Bundle;

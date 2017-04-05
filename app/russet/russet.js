@@ -11,7 +11,7 @@ var global_1 = require("./core/global");
 var html_page_1 = require("./core/templating/html-page");
 var client_1 = require("./core/client");
 exports.default = {
-    App: app_1.CoreApp,
+    CoreApp: app_1.CoreApp,
     Bundle: bundle_1.Bundle,
     TemplateResponse: template_1.TemplateResponse,
     RenderTemplate: template_1.RenderTemplate,

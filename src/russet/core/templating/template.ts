@@ -1,8 +1,6 @@
-/// <reference path="../../../../typings/index.d.ts" />
 /**
  * Template decorator
  */
-
 import ReactDOMServer = require('react-dom/server')
 import {Response} from "../web/response"
 import {Global} from '../global'

@@ -1,37 +1,37 @@
-import {Bundle as BundleClass} from "./core/bundle"
+import {Bundle} from "./core/bundle"
 import {CoreApp} from "./core/app"
-import {TemplateResponse as TemplateResponseClass, RenderTemplate} from "./core/templating/template"
-import {ApiResponse as ApiResponseClass} from "./core/web/api-response"
-import {Response as ResponseClass} from "./core/web/response"
-import {WorkchainResponse as WorkchainResponseClass, ResponseWorkchain as ResponseWorkchainClass} from "./core/workchain"
+import {TemplateResponse, RenderTemplate} from "./core/templating/template"
+import {ApiResponse} from "./core/web/api-response"
+import {Response} from "./core/web/response"
+import {WorkchainResponse, ResponseWorkchain} from "./core/workchain"
 import {ClientRoute} from "./core/client/client-route"
 import {Global} from './core/global'
-import {HtmlPage as HtmlPageClass} from "./core/templating/html-page"
+import {HtmlPage} from "./core/templating/html-page"
 import {RussetClient} from './core/client'
 
 export default
 {
-    App: CoreApp,
+    CoreApp: CoreApp,
 
-    Bundle: BundleClass,
+    Bundle: Bundle,
 
-    TemplateResponse:TemplateResponseClass,
+    TemplateResponse: TemplateResponse,
 
     RenderTemplate: RenderTemplate,
 
-    ApiResponse: ApiResponseClass,
+    ApiResponse: ApiResponse,
 
-    Response: ResponseClass,
+    Response: Response,
 
-    WorkchainResponse: WorkchainResponseClass,
+    WorkchainResponse: WorkchainResponse,
     
-    ResponseWorkchain: ResponseWorkchainClass,
+    ResponseWorkchain: ResponseWorkchain,
 
     ClientRoute: ClientRoute,
 
     Global: Global,
     
-    HtmlPage: HtmlPageClass,
+    HtmlPage: HtmlPage,
     
     RussetClient: RussetClient
 }

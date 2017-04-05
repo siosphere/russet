@@ -20,6 +20,7 @@ var RussetClient = (function (_super) {
         _this.state = {
             url: window.location.pathname
         };
+        _this.onHashChange = _this.onHashChange.bind(_this);
         return _this;
     }
     RussetClient.prototype.componentWillMount = function () {

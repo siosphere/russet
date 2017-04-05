@@ -1,7 +1,5 @@
-import http = require('http')
-
-export enum HTTPStatusCode
-{
+import http = require('http');
+export declare enum HTTPStatusCode {
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,
     PROCESSING = 102,
@@ -53,62 +51,22 @@ export enum HTTPStatusCode
     GATEWAY_TIMEOUT = 504,
     HTTP_VERSION_NOT_SUPPORTED = 505,
     INSUFFICIENT_STORAGE = 507,
-    NETWORK_AUTHENTICATION_REQUIRED = 511
+    NETWORK_AUTHENTICATION_REQUIRED = 511,
 }
-
-export class ResponseHeader
-{
-    name : string
-    value : any
-
-    constructor(name, value)
-    {
-        this.name = name
-        this.value = value
-    }
+export declare class ResponseHeader {
+    name: string;
+    value: any;
+    constructor(name: any, value: any);
 }
-
-export class Response
-{
-    content : any
-
-    statusCode : HTTPStatusCode
-
-    charSet : string
-
-    headers : ResponseHeader[]
-
-    constructor(content = "", statusCode = HTTPStatusCode.OK, charSet = 'utf8', headers = [])
-    {
-        this.content = content
-        this.statusCode = statusCode
-        this.headers = headers
-    }
-
-    addHeader(name : string, value : any = null)
-    {
-        this.headers.push(new ResponseHeader(name, value))
-    }
-
-    setContent(content : string)
-    {
-        this.content = content
-    }
-
-    setCharSet(charSet : string)
-    {
-        this.charSet = charSet
-    }
-
-    setStatusCode(statusCode : HTTPStatusCode)
-    {
-        this.statusCode = statusCode
-    }
-
-    setupHeaders(serverResponse : http.ServerResponse)
-    {
-        this.headers.forEach((header) => {
-            serverResponse.setHeader(header.name, header.value)
-        })
-    }
+export declare class Response {
+    content: any;
+    statusCode: HTTPStatusCode;
+    charSet: string;
+    headers: ResponseHeader[];
+    constructor(content?: string, statusCode?: HTTPStatusCode, charSet?: string, headers?: any[]);
+    addHeader(name: string, value?: any): void;
+    setContent(content: string): void;
+    setCharSet(charSet: string): void;
+    setStatusCode(statusCode: HTTPStatusCode): void;
+    setupHeaders(serverResponse: http.ServerResponse): void;
 }

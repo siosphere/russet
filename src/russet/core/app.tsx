@@ -1,4 +1,3 @@
-/// <reference path="../../../typings/index.d.ts" />
 import connect = require('connect')
 import bodyParser = require('body-parser')
 import http = require('http')

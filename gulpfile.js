@@ -19,7 +19,7 @@ gulp.task('build_definitions', function() {
 
     return proj
     .dts
-    .pipe(gulp.dest('./def/'))
+    .pipe(gulp.dest('./app/russet/'))
 })
 
 gulp.task('definitions', ['build_definitions'], function() {

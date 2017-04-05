@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/index.d.ts" />
-
 import React = require('react')
 import * as beef from 'beef-flux'
 
@@ -25,6 +23,8 @@ export class RussetClient extends React.Component<RussetClientProps, RussetClien
         this.state = {
             url: window.location.pathname
         }
+
+        this.onHashChange = this.onHashChange.bind(this)
     }
 
     componentWillMount()
